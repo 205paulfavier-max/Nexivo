@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-nexivo-surface text-nexivo-ink antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-nexivo-blue text-white hover:bg-nexivo-blue-dark focus:ring-nexivo-blue;
+  }
+  .btn-danger {
+    @apply btn bg-nexivo-red text-white hover:bg-nexivo-red-dark focus:ring-nexivo-red;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-nexivo-ink hover:bg-nexivo-border/60 focus:ring-nexivo-border;
+  }
+  .btn-dark {
+    @apply btn bg-nexivo-black text-white hover:bg-nexivo-ink focus:ring-nexivo-black;
+  }
+  .btn-outline {
+    @apply btn border border-nexivo-border bg-white text-nexivo-ink hover:bg-nexivo-surface focus:ring-nexivo-blue;
+  }
+  .card {
+    @apply rounded-xl border border-nexivo-border bg-white shadow-card;
+  }
+  .input {
+    @apply w-full rounded-lg border border-nexivo-border bg-white px-3 py-2 text-sm text-nexivo-ink placeholder:text-nexivo-gray focus:border-nexivo-blue focus:outline-none focus:ring-2 focus:ring-nexivo-blue/20;
+  }
+  .label {
+    @apply mb-1 block text-xs font-medium uppercase tracking-wide text-nexivo-gray;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium;
+  }
+  .nav-link {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-white/70 transition-colors hover:bg-white/5 hover:text-white;
+  }
+  .nav-link-active {
+    @apply bg-white/10 text-white;
+  }
+}
+
+.nexivo-stripe {
+  height: 4px;
+  background: linear-gradient(90deg, #1d4ed8 0%, #1d4ed8 50%, #dc2626 50%, #dc2626 100%);
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-nexivo-border;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-nexivo-gray/60;
+}
