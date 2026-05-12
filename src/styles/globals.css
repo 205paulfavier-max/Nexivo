@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0a14;
+  --bg-elevated: #15151f;
+  --accent-pink: #ff2d87;
+  --accent-cyan: #00e5ff;
+  --accent-yellow: #ffd60a;
+  --accent-orange: #ff6b35;
+  --accent-purple: #9d4edd;
+  --accent-lime: #c1ff00;
+  --accent-red: #ff1744;
+  --accent-blue: #2979ff;
+  --green-bright: #00e676;
+  --gold: #ffd60a;
+  --text: #ffffff;
+  --text-dim: #9ca3af;
+  --border: #2a2a3e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at top left, rgba(255, 45, 135, 0.15), transparent 50%),
+    radial-gradient(ellipse at top right, rgba(0, 229, 255, 0.12), transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(255, 214, 10, 0.1), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: 0;
+  background: none;
+  color: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+button:focus-visible,
+[tabindex='0']:focus-visible {
+  outline: 3px solid var(--accent-yellow);
+  outline-offset: 3px;
+}
+
+/* Panel: standard frame with 4 gold corners */
+.panel {
+  position: relative;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border);
+  padding: 25px;
+}
+
+.panel::before,
+.panel::after,
+.panel > .corner-bl,
+.panel > .corner-br {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--gold);
+  border-style: solid;
+  border-width: 0;
+}
+.panel::before {
+  top: -2px;
+  left: -2px;
+  border-top-width: 3px;
+  border-left-width: 3px;
+}
+.panel::after {
+  top: -2px;
+  right: -2px;
+  border-top-width: 3px;
+  border-right-width: 3px;
+}
+.panel .corner-bl {
+  bottom: -2px;
+  left: -2px;
+  border-bottom-width: 3px;
+  border-left-width: 3px;
+}
+.panel .corner-br {
+  bottom: -2px;
+  right: -2px;
+  border-bottom-width: 3px;
+  border-right-width: 3px;
+}
+
+.title-gradient {
+  background: linear-gradient(90deg, #ff2d87, #ffd60a, #00e5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
