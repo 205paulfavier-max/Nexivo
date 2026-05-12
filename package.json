@@ -15,7 +15,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc -b --noEmit",
-    "prepare": "husky || true"
+    "prepare": "husky"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",

@@ -44,7 +44,7 @@ export const HIDDEN_RESOURCES: readonly HiddenResource[] = [
     icon: '⚱️',
     label: 'Trésor archéologique',
     kind: 'bonus',
-    description: "un trésor archéologique qui attire les chercheurs du monde entier.",
+    description: 'un trésor archéologique qui attire les chercheurs du monde entier.',
     economyBonus: 5,
   },
   {
@@ -77,7 +77,8 @@ export const HIDDEN_RESOURCES: readonly HiddenResource[] = [
     icon: '⛏️',
     label: 'Mines de lithium inexploitées',
     kind: 'bonus',
-    description: 'des mines de lithium encore intactes, convoitées par toutes les batteries du futur.',
+    description:
+      'des mines de lithium encore intactes, convoitées par toutes les batteries du futur.',
     economyBonus: 6,
   },
   {
@@ -101,7 +102,7 @@ export const HIDDEN_RESOURCES: readonly HiddenResource[] = [
     icon: '☢️',
     label: 'Site nucléaire abandonné',
     kind: 'malus',
-    description: "un site nucléaire abandonné qui contamine encore les nappes phréatiques.",
+    description: 'un site nucléaire abandonné qui contamine encore les nappes phréatiques.',
     hdiBonus: -0.05,
   },
   {

@@ -253,10 +253,7 @@ export function getWeights(wheel: Wheel, results: ResultsByWheel): number[] {
         ['Militarisme expansionniste', 'Anarcho-capitalisme'].includes(s)
       )
         weights[i]! *= 2;
-      if (
-        ['Hôtellerie luxe', 'Mode', 'Joaillerie'].includes(eco) &&
-        s === 'Capitalisme libéral'
-      )
+      if (['Hôtellerie luxe', 'Mode', 'Joaillerie'].includes(eco) && s === 'Capitalisme libéral')
         weights[i]! *= 2;
     });
   }
@@ -327,10 +324,7 @@ export function getWeights(wheel: Wheel, results: ResultsByWheel): number[] {
         ['Aigle', 'Lion', 'Tigre', 'Dragon'].includes(s)
       )
         weights[i]! *= 3;
-      if (
-        ideo === 'Écologisme radical' &&
-        ['Capybara', 'Éléphant', 'Rhinocéros'].includes(s)
-      )
+      if (ideo === 'Écologisme radical' && ['Capybara', 'Éléphant', 'Rhinocéros'].includes(s))
         weights[i]! *= 5;
     });
   }
@@ -380,10 +374,7 @@ export function getWeights(wheel: Wheel, results: ResultsByWheel): number[] {
       )
         weights[i]! *= 10;
       if (regime === 'Théocratie' && s === 'Religieux') weights[i]! *= 10;
-      if (
-        regime === 'Technocratie' &&
-        ['Ingénieur', 'Scientifique', 'Économiste'].includes(s)
-      )
+      if (regime === 'Technocratie' && ['Ingénieur', 'Scientifique', 'Économiste'].includes(s))
         weights[i]! *= 10;
       if (
         ['Monarchie absolue', 'Monarchie constitutionnelle', 'Aristocratie héréditaire'].includes(
@@ -406,11 +397,7 @@ export function getWeights(wheel: Wheel, results: ResultsByWheel): number[] {
       )
         weights[i]! *= 3;
       if (regime === 'Conseil des sages' && n >= 60) weights[i]! *= 10;
-      if (
-        ['Dictature militaire', 'Junte révolutionnaire'].includes(regime) &&
-        n >= 35 &&
-        n <= 55
-      )
+      if (['Dictature militaire', 'Junte révolutionnaire'].includes(regime) && n >= 35 && n <= 55)
         weights[i]! *= 3;
     });
   }
@@ -424,8 +411,7 @@ export function getWeights(wheel: Wheel, results: ResultsByWheel): number[] {
         if (['Cancer rémission', 'Démence précoce', 'Espérance < 2 ans'].includes(s))
           weights[i]! *= 0.1;
       }
-      if (age >= 55 && age <= 70 && ['Diabète', 'Maladie cardiaque'].includes(s))
-        weights[i]! *= 3;
+      if (age >= 55 && age <= 70 && ['Diabète', 'Maladie cardiaque'].includes(s)) weights[i]! *= 3;
       if (age >= 70 && ['Cancer rémission', 'Démence précoce', 'Espérance < 2 ans'].includes(s))
         weights[i]! *= 5;
     });
@@ -454,10 +440,7 @@ export function getWeights(wheel: Wheel, results: ResultsByWheel): number[] {
         ["Coup d'État accepté", 'Auto-proclamé'].includes(s)
       )
         weights[i]! *= 10;
-      if (
-        regime === 'Théocratie' &&
-        ['Désigné prédécesseur', 'Élu sans opposition'].includes(s)
-      )
+      if (regime === 'Théocratie' && ['Désigné prédécesseur', 'Élu sans opposition'].includes(s))
         weights[i]! *= 5;
     });
   }
@@ -469,10 +452,7 @@ export function getWeights(wheel: Wheel, results: ResultsByWheel): number[] {
       const s = asString(seg);
       if (['Oligarchie', 'Ploutocratie'].includes(regime) && s === 'Corruption documentée')
         weights[i]! *= 2;
-      if (
-        ["Trafic d'armes", 'Blanchiment', 'Contrefaçon'].includes(eco) &&
-        s === 'Liens mafia'
-      )
+      if (["Trafic d'armes", 'Blanchiment', 'Contrefaçon'].includes(eco) && s === 'Liens mafia')
         weights[i]! *= 2;
     });
   }

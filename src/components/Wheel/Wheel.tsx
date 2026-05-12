@@ -20,7 +20,13 @@ const CENTER_HOLE_R = 38;
 const TEXT_START_R = OUTER_RADIUS - 14;
 const TEXT_END_R = CENTER_HOLE_R + 8;
 
-function describeSlice(cx: number, cy: number, r: number, startAngle: number, endAngle: number): string {
+function describeSlice(
+  cx: number,
+  cy: number,
+  r: number,
+  startAngle: number,
+  endAngle: number,
+): string {
   // Convert to SVG coordinates (angles measured CW from north).
   const toXY = (deg: number): [number, number] => {
     const rad = ((deg - 90) * Math.PI) / 180;
@@ -98,7 +104,9 @@ export function Wheel({ wheel }: WheelProps): JSX.Element {
           style={{
             transformOrigin: `${CENTER}px ${CENTER}px`,
             transform: `rotate(${rotation}deg)`,
-            transition: target ? `transform ${target.durationMs}ms cubic-bezier(0.17, 0.67, 0.21, 0.99)` : undefined,
+            transition: target
+              ? `transform ${target.durationMs}ms cubic-bezier(0.17, 0.67, 0.21, 0.99)`
+              : undefined,
           }}
         >
           {displayOrder.map((segIndex, visualPos) => {
@@ -145,7 +153,14 @@ export function Wheel({ wheel }: WheelProps): JSX.Element {
           })}
         </g>
         {/* Center hole */}
-        <circle cx={CENTER} cy={CENTER} r={CENTER_HOLE_R} fill="#fff" stroke="#0a0a14" strokeWidth={3} />
+        <circle
+          cx={CENTER}
+          cy={CENTER}
+          r={CENTER_HOLE_R}
+          fill="#fff"
+          stroke="#0a0a14"
+          strokeWidth={3}
+        />
         <text
           x={CENTER}
           y={CENTER + 5}

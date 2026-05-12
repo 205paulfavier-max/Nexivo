@@ -87,7 +87,11 @@ function pickZoneBiomes(primary: string, count: number, rng: RNG): string[] {
   return zones;
 }
 
-function placeInside(rng: RNG, outline: readonly Point[], spread: { sx: number; sy: number }): Point {
+function placeInside(
+  rng: RNG,
+  outline: readonly Point[],
+  spread: { sx: number; sy: number },
+): Point {
   let p: Point = CENTER;
   for (let tries = 0; tries < 20; tries += 1) {
     const candidate: Point = {

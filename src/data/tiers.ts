@@ -48,7 +48,8 @@ export const TIERS: readonly Tier[] = [
     emoji: '👑',
     minScore: 82,
     accentClass: 'text-pink',
-    verdict: 'On parle d’un pays qui réécrit la carte du monde. Les manuels d’Histoire l’attendent.',
+    verdict:
+      'On parle d’un pays qui réécrit la carte du monde. Les manuels d’Histoire l’attendent.',
   },
 ];
 

@@ -195,7 +195,7 @@ export const ECONOMY_VISUALS: Readonly<Record<string, string>> = {
   'Ports stratégiques': 'fortified naval and trade ports at chokepoints',
   'Câbles sous-marins': 'cable landing stations and underwater fibre runs',
   'Cannabis légal': 'sun-drenched cannabis plantations and tasting boutiques',
-  'Trafic d\'armes': 'discreet smuggling ports and clandestine warehouses',
+  "Trafic d'armes": 'discreet smuggling ports and clandestine warehouses',
   'Paradis fiscal': 'tax-haven skyscrapers behind palm-lined boulevards',
   Blanchiment: 'lavish casinos and shell-company office towers',
   Contrefaçon: 'bustling counterfeit markets in narrow alleys',

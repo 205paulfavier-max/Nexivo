@@ -16,7 +16,10 @@ export function ProfilePanel(): JSX.Element {
   const results = useCountryStore((s) => s.results);
   const currentWheelIndex = useCountryStore((s) => s.currentWheelIndex);
   return (
-    <ol className="panel max-h-[640px] overflow-y-auto space-y-1.5 text-sm" aria-label="Profil du pays">
+    <ol
+      className="panel max-h-[640px] overflow-y-auto space-y-1.5 text-sm"
+      aria-label="Profil du pays"
+    >
       <span className="corner-bl" />
       <span className="corner-br" />
       {WHEELS.map((w, idx) => {

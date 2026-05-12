@@ -21,9 +21,9 @@ const FULL_ROTATIONS = 6;
 export function nextRotation(currentRotation: number, target: SpinTarget): number {
   const anglePerSeg = 360 / target.segmentCount;
   const segmentCenter = (target.targetVisualPos + 0.5) * anglePerSeg;
-  const desiredFinalAngle = ((360 - segmentCenter) % 360 + 360) % 360;
+  const desiredFinalAngle = (((360 - segmentCenter) % 360) + 360) % 360;
   const currentMod = ((currentRotation % 360) + 360) % 360;
-  const deltaToTarget = ((desiredFinalAngle - currentMod) % 360 + 360) % 360;
+  const deltaToTarget = (((desiredFinalAngle - currentMod) % 360) + 360) % 360;
   return currentRotation + deltaToTarget + FULL_ROTATIONS * 360;
 }
 

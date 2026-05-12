@@ -14,7 +14,13 @@ export function WheelPointer(): JSX.Element {
           </feMerge>
         </filter>
       </defs>
-      <polygon points="20,38 8,8 32,8" fill="#FFD60A" stroke="#0a0a14" strokeWidth="2" filter="url(#pointer-glow)" />
+      <polygon
+        points="20,38 8,8 32,8"
+        fill="#FFD60A"
+        stroke="#0a0a14"
+        strokeWidth="2"
+        filter="url(#pointer-glow)"
+      />
       <circle cx="20" cy="8" r="4" fill="#FFD60A" stroke="#0a0a14" strokeWidth="2" />
     </svg>
   );

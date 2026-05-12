@@ -10,7 +10,10 @@ function r(wheelId: number, value: SegmentValue | SegmentValue[]): SpinResult {
     wheelId,
     label: wheel.label,
     value,
-    chosenIndex: Math.max(0, wheel.segments.findIndex((s) => s === seg)),
+    chosenIndex: Math.max(
+      0,
+      wheel.segments.findIndex((s) => s === seg),
+    ),
   };
 }
 

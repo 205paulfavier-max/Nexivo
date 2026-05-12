@@ -73,7 +73,14 @@ export function CountryMap(): JSX.Element | null {
         <g transform="translate(740 60)">
           <circle r={22} fill="rgba(0,0,0,0.55)" stroke="#FFD60A" />
           <polygon points="0,-18 4,0 0,18 -4,0" fill="#FFD60A" />
-          <text x={0} y={-26} textAnchor="middle" fill="#FFD60A" fontFamily="Bebas Neue" fontSize={11}>
+          <text
+            x={0}
+            y={-26}
+            textAnchor="middle"
+            fill="#FFD60A"
+            fontFamily="Bebas Neue"
+            fontSize={11}
+          >
             N
           </text>
         </g>

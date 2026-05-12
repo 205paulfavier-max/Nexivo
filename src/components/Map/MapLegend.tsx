@@ -14,7 +14,10 @@ export function MapLegend(): JSX.Element | null {
           const fill = map.zones.find((z) => z.biome === biome)?.fill ?? '#888';
           return (
             <div key={biome} className="flex items-center gap-2">
-              <span className="inline-block w-4 h-4 border border-border" style={{ background: fill }} />
+              <span
+                className="inline-block w-4 h-4 border border-border"
+                style={{ background: fill }}
+              />
               <span className="text-text-dim">{biome}</span>
             </div>
           );

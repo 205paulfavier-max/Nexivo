@@ -49,7 +49,9 @@ export function HistoryPanel(): JSX.Element | null {
         </div>
       </header>
       {history.length === 0 ? (
-        <p className="font-mono text-xs text-text-dim italic">Aucun pays sauvegardé pour l'instant.</p>
+        <p className="font-mono text-xs text-text-dim italic">
+          Aucun pays sauvegardé pour l'instant.
+        </p>
       ) : (
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 font-mono text-xs">
           {history.map((c, i) => {
