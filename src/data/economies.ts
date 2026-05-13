@@ -1,0 +1,251 @@
+/**
+ * GDP quality multipliers (per economy). Mirrors v13 exactly — used to
+ * compute realistic GDP-per-capita from HDI: `gdp = hdi * avgQuality * 30_000`.
+ *
+ * Default for unknown economies: 1.8 (mid-low diversified).
+ */
+export const ECONOMY_QUALITY: Readonly<Record<string, number>> = {
+  Pétrole: 3.5,
+  Gaz: 3.0,
+  Or: 3.0,
+  Diamants: 3.5,
+  'Terres rares': 3.0,
+  Lithium: 3.0,
+  'Semi-conducteurs': 4.0,
+  IA: 4.0,
+  Pharma: 3.5,
+  Aéronautique: 3.5,
+  Automobile: 3.0,
+  Mode: 3.5,
+  Joaillerie: 3.5,
+  Horlogerie: 3.5,
+  Yachts: 3.5,
+  'Jets privés': 3.5,
+  Banque: 3.5,
+  'Paradis fiscal': 4.0,
+  'Citoyenneté à vendre': 3.0,
+  Casinos: 2.5,
+  'Vins fins': 3.0,
+  Spiritueux: 3.0,
+  Cacao: 1.0,
+  Bananes: 0.8,
+  Café: 1.2,
+  Riz: 0.8,
+  Blé: 1.5,
+  Maïs: 1.5,
+  "Trafic d'armes": 2.5,
+  Mercenariat: 2.0,
+  'Cannabis légal': 2.5,
+  Blanchiment: 3.0,
+  Cobalt: 2.5,
+  Cuivre: 2.0,
+  Fer: 2.0,
+  Bauxite: 2.0,
+  Argent: 2.5,
+  Platine: 3.0,
+  Charbon: 1.8,
+  Uranium: 3.0,
+  Solaire: 2.5,
+  Éolien: 2.5,
+  Hydroélectrique: 2.5,
+  Géothermie: 2.5,
+  'Hydrogène vert': 3.0,
+  Biomasse: 1.5,
+  Naval: 2.5,
+  Textile: 1.5,
+  Chimie: 2.8,
+  Sidérurgie: 2.0,
+  Électronique: 3.0,
+  Armement: 3.0,
+  Construction: 2.0,
+  Cloud: 3.5,
+  Crypto: 3.0,
+  Cybersécurité: 3.5,
+  Robotique: 3.5,
+  Biotech: 3.5,
+  Spatial: 3.5,
+  Quantique: 4.0,
+  'Réseaux sociaux': 3.0,
+  Assurance: 3.0,
+  Conseil: 3.0,
+  Comptabilité: 2.5,
+  Juridique: 3.0,
+  Immobilier: 2.8,
+  Logistique: 2.5,
+  Télécoms: 2.8,
+  Médias: 2.5,
+  Edtech: 2.5,
+  'Tourisme balnéaire': 2.0,
+  'Tourisme culturel': 2.0,
+  'Hôtellerie luxe': 3.5,
+  Parfumerie: 3.0,
+  'Pêche industrielle': 1.8,
+  Aquaculture: 2.0,
+  Algues: 1.5,
+  Crustacés: 2.5,
+  Caviar: 3.5,
+  Coraux: 2.0,
+  Perles: 2.5,
+  'Transport maritime': 2.5,
+  'Ports stratégiques': 3.0,
+  'Câbles sous-marins': 3.5,
+  Contrefaçon: 1.5,
+  'Crypto pirate': 2.5,
+  'Drapeau complaisance': 2.5,
+  'Casinos offshore': 3.0,
+  Streaming: 2.8,
+  Esports: 2.5,
+  'Influence marketing': 2.5,
+  NFT: 2.0,
+  'Jeux vidéo': 3.0,
+  Fromages: 2.0,
+  Chocolat: 2.0,
+  Microbrasseries: 2.0,
+  Sucre: 1.0,
+  Épices: 1.5,
+  Vin: 2.5,
+  "Huile d'olive": 2.5,
+};
+
+export const ECONOMY_QUALITY_DEFAULT = 1.8;
+
+/**
+ * Visual descriptors used by the AI prompt generator. Maps an economy to
+ * concrete scenery elements to be injected in the Midjourney prompt.
+ */
+export const ECONOMY_VISUALS: Readonly<Record<string, string>> = {
+  Pétrole: 'oil derricks dotting the landscape, refineries with flaming flares',
+  Gaz: 'sprawling gas processing plants and pipeline networks',
+  Charbon: 'open-pit coal mines and blackened mining towns',
+  Uranium: 'fenced uranium mines and radiation warning signs',
+  Solaire: 'vast solar fields stretching to the horizon',
+  Éolien: 'rows of wind turbines on rolling hills',
+  Hydroélectrique: 'massive concrete dams crowning deep valleys',
+  Géothermie: 'steam vents and geothermal power stations',
+  'Hydrogène vert': 'futuristic hydrogen plants near the coast',
+  Biomasse: 'biomass refineries near vast plantations',
+  Or: 'glittering open-pit gold mines, refinery towers',
+  Diamants: 'concentric diamond pit mines, security gantries',
+  Lithium: 'salt flats and lithium evaporation pools',
+  Cobalt: 'cobalt strip mines and processing yards',
+  'Terres rares': 'rare earth mining complexes carved into mountains',
+  Cuivre: 'massive copper smelters and conveyor systems',
+  Fer: 'iron mines and steel mills belching smoke',
+  Bauxite: 'red bauxite quarries scarring the highlands',
+  Argent: 'silver mines and refining towns',
+  Platine: 'platinum mines and high-security refineries',
+  Riz: 'terraced rice paddies cascading down hills',
+  Blé: 'endless golden wheat fields under summer sky',
+  Maïs: 'sprawling corn plantations and grain silos',
+  Café: 'shade-grown coffee plantations on volcanic slopes',
+  Cacao: 'cacao plantations under tropical canopy',
+  Bananes: 'vast banana plantations stretching to the coast',
+  Vin: 'rolling vineyards and stone wineries',
+  "Huile d'olive": 'silver olive groves dotting the countryside',
+  Sucre: 'sugarcane fields ablaze with sunset hues',
+  Épices: 'colourful spice markets and drying yards',
+  Automobile: 'gleaming automotive plants and test tracks',
+  Aéronautique: 'aircraft assembly halls and runway tarmacs',
+  Naval: 'sprawling shipyards and cranes over deep harbours',
+  Textile: 'cotton fields and bustling textile mills',
+  Pharma: 'futuristic pharma campuses and clean labs',
+  Chimie: 'industrial chemical complexes hugging the coast',
+  Sidérurgie: 'roaring steel mills and blast furnaces',
+  Électronique: 'electronics megafactories ringed by tech parks',
+  Armement: 'arms factories and weapon test ranges',
+  Construction: 'cranes piercing every skyline, ongoing megaprojects',
+  'Semi-conducteurs': 'silicon fabs glowing with cleanroom light',
+  IA: 'AI research campuses and cooling data towers',
+  Cloud: 'colossal hyperscale data centres in the desert',
+  Crypto: 'hidden crypto-mining farms in cold mountain caves',
+  Cybersécurité: 'fortified cyber-defence headquarters bristling with antennas',
+  Robotique: 'robotics labs and humanoid prototypes in motion',
+  Biotech: 'biotech parks and high-security greenhouses',
+  Spatial: 'spaceports with rockets ready on the pad',
+  Quantique: 'cryogenic quantum labs glowing in subterranean halls',
+  'Réseaux sociaux': 'campus-style HQs and global server farms',
+  Banque: 'glass-clad financial towers along a river bend',
+  Assurance: 'corporate insurance towers and reinsurance domes',
+  Conseil: 'glassy consulting offices and helipad rooftops',
+  Comptabilité: 'rows of accounting firms in business districts',
+  Juridique: 'imposing court buildings and law firm towers',
+  Immobilier: 'high-rise residential booms and construction cranes',
+  Logistique: 'mega-warehouses near container ports',
+  Télécoms: 'forests of telecom antennas atop every hill',
+  Médias: 'media campuses with satellite uplinks',
+  Edtech: 'smart-campuses and online learning hubs',
+  'Tourisme balnéaire': 'pristine beach resorts and infinity pools',
+  'Tourisme culturel': 'ancient monuments thronged with respectful crowds',
+  Casinos: 'neon casino strips reflected on rainy boulevards',
+  'Hôtellerie luxe': 'palatial resorts with private heliports',
+  Mode: 'fashion boulevards and runway shows under spotlights',
+  Parfumerie: 'lavender fields feeding heritage perfume houses',
+  Joaillerie: 'jeweller boulevards bathed in golden light',
+  Horlogerie: 'alpine workshops crafting fine timepieces',
+  Yachts: 'opulent marinas filled with private yachts',
+  'Jets privés': 'private jet airfields lined with hangars',
+  'Pêche industrielle': 'fleets of trawlers returning at dawn',
+  Aquaculture: 'circular fish farms dotting coastal lagoons',
+  Algues: 'kelp farms shimmering at low tide',
+  Crustacés: 'crab traps stacked on weathered piers',
+  Caviar: 'sturgeon ponds and caviar processing halls',
+  Coraux: 'coral nurseries and marine research stations',
+  Perles: 'pearl farms in turquoise lagoons',
+  'Transport maritime': 'mega container ports and stacked cargo cranes',
+  'Ports stratégiques': 'fortified naval and trade ports at chokepoints',
+  'Câbles sous-marins': 'cable landing stations and underwater fibre runs',
+  'Cannabis légal': 'sun-drenched cannabis plantations and tasting boutiques',
+  "Trafic d'armes": 'discreet smuggling ports and clandestine warehouses',
+  'Paradis fiscal': 'tax-haven skyscrapers behind palm-lined boulevards',
+  Blanchiment: 'lavish casinos and shell-company office towers',
+  Contrefaçon: 'bustling counterfeit markets in narrow alleys',
+  'Crypto pirate': 'underground crypto-mining bunkers',
+  'Drapeau complaisance': 'commercial fleets sailing under foreign flags',
+  'Casinos offshore': 'island casinos perched on artificial reefs',
+  'Citoyenneté à vendre': 'embassy boulevards selling passports to billionaires',
+  Mercenariat: 'private military compounds and training camps',
+  Streaming: 'massive content studios with live audience plateaus',
+  Esports: 'esports arenas packed with cheering fans',
+  'Influence marketing': 'influencer studios and creator campuses',
+  NFT: 'crypto-art galleries beside abandoned offices',
+  'Jeux vidéo': 'video-game studios with iconic mascots in lobbies',
+  'Vins fins': 'fine-wine cellars carved into chalk hills',
+  Spiritueux: 'historic distilleries with copper stills gleaming',
+  Fromages: 'rolling pastures and ancient cheese caves',
+  Chocolat: 'artisanal chocolate ateliers and tasting rooms',
+  Microbrasseries: 'craft breweries with open taprooms',
+};
+
+export function getEconomyQuality(name: string): number {
+  return ECONOMY_QUALITY[name] ?? ECONOMY_QUALITY_DEFAULT;
+}
+
+/** Average GDP quality across a country's economies. */
+export function getAverageQuality(economies: readonly string[]): number {
+  if (economies.length === 0) return ECONOMY_QUALITY_DEFAULT;
+  const sum = economies.reduce((acc, e) => acc + getEconomyQuality(e), 0);
+  return sum / economies.length;
+}
+
+/**
+ * GDP per capita in USD-equivalent units, derived from HDI and economy quality.
+ * Returns null if either input is missing.
+ */
+export function computeGdpPerCapita(
+  hdi: number | null,
+  economies: readonly string[],
+): number | null {
+  if (!hdi || economies.length === 0) return null;
+  return Math.round(hdi * getAverageQuality(economies) * 30000);
+}
+
+export function getEconomyVisual(name: string): string {
+  return ECONOMY_VISUALS[name] ?? `${name.toLowerCase()} industries shaping the landscape`;
+}
+
+/** Number of economies a country has based on its surface area. */
+export function getEconomyCount(km2: number): 1 | 2 | 3 {
+  if (km2 < 100000) return 1;
+  if (km2 < 2000000) return 2;
+  return 3;
+}

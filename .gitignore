@@ -1,0 +1,10 @@
+.reference-v13.html
+.reference-v13-script.js
+node_modules
+dist
+coverage
+.env
+.env.local
+*.log
+.DS_Store
+*.tsbuildinfo
