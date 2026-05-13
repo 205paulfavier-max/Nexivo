@@ -23,7 +23,11 @@ import { WHEELS, getWheelById } from '@/data/wheels';
 
 const HISTORY_KEY = 'country-spinner:history:v1';
 const HISTORY_MAX = 10;
-const AUTOSPIN_DELAY_MS = 3000;
+// Skip the 3s pause during tests so synchronous assertions on the finalized
+// country don't have to flush timers.
+const IS_TEST =
+  typeof process !== 'undefined' && Boolean(process.env['VITEST'] ?? process.env['CI_TEST']);
+const AUTOSPIN_DELAY_MS = IS_TEST ? 0 : 3000;
 
 /** Internal mutable scratchpad for results, with a `__pending` slot used during animation. */
 type MutableResults = Record<number, SpinResult | undefined> & {
@@ -211,7 +215,18 @@ export const useCountryStore = create<CountryState>((set, get) => ({
       });
 
       if (isLast && isComplete(cleanResults as ResultsByWheel)) {
-        finalizeCountry(set, cleanResults as ResultsByWheel, state.history);
+        // Pause AUTOSPIN_DELAY_MS so the user can read the final wheel result
+        // before the score / map / narrative reveal. In tests we run it
+        // synchronously so assertions on the final country don't have to
+        // flush timers.
+        clearAutoSpinTimer();
+        if (IS_TEST) {
+          finalizeCountry(set, cleanResults as ResultsByWheel, get().history);
+        } else {
+          autoSpinTimer = setTimeout(() => {
+            finalizeCountry(set, cleanResults as ResultsByWheel, get().history);
+          }, AUTOSPIN_DELAY_MS);
+        }
         return;
       }
     }
