@@ -45,6 +45,17 @@ export type Scene = {
   title: string;
   /** Plage horaire indicative issue du script (pour repère humain). */
   timecode: string;
+  /**
+   * Durée cible de la séquence en secondes (issue des timecodes du script).
+   * Les durées des sous-titres (`seconds`) servent alors de POIDS relatifs :
+   * elles sont mises à l'échelle pour que la séquence dure exactement
+   * `targetSeconds`. Cela donne le rythme documentaire visé (~10 min au total)
+   * avec des respirations réalistes.
+   *
+   * 👉 Quand la voix-off sera calée, on pourra supprimer ce champ et utiliser
+   *    les `seconds` comme durées absolues réelles.
+   */
+  targetSeconds?: number;
   tone: Tone;
   /** Note de réalisation (visuel global de la séquence). */
   visualNote: string;
@@ -58,6 +69,7 @@ export const scenes: Scene[] = [
     number: 0,
     title: "Accroche",
     timecode: "0:00 – 0:40",
+    targetSeconds: 40,
     tone: "intro",
     visualNote: "Gros plan lent sur le logo aux trois diamants, fond sombre.",
     captions: [
@@ -112,6 +124,7 @@ export const scenes: Scene[] = [
     number: 1,
     title: "Un homme parti de rien",
     timecode: "0:40 – 2:30",
+    targetSeconds: 110,
     tone: "normal",
     visualNote: "Carte du Japon, île de Shikoku, portrait de Yataro Iwasaki.",
     captions: [
@@ -205,6 +218,7 @@ export const scenes: Scene[] = [
     number: 2,
     title: "Le nom et le logo",
     timecode: "2:30 – 3:20",
+    targetSeconds: 50,
     tone: "normal",
     visualNote: "Décomposition animée du logo, fusion des deux blasons.",
     captions: [
@@ -251,6 +265,7 @@ export const scenes: Scene[] = [
     number: 3,
     title: "L'ascension et le lien avec l'État",
     timecode: "3:20 – 4:40",
+    targetSeconds: 80,
     tone: "epic",
     visualNote: "Navires transportant des troupes, mines, chantier de Nagasaki.",
     captions: [
@@ -328,6 +343,7 @@ export const scenes: Scene[] = [
     number: 4,
     title: "Le zaibatsu : un empire tentaculaire",
     timecode: "4:40 – 6:00",
+    targetSeconds: 80,
     tone: "epic",
     visualNote: "Schéma en arbre, les quatre zaibatsu, montage de puissance.",
     captions: [
@@ -393,6 +409,7 @@ export const scenes: Scene[] = [
     number: 5,
     title: "La guerre, le Zéro et le travail forcé",
     timecode: "6:00 – 8:00",
+    targetSeconds: 120,
     tone: "grave",
     visualNote: "Archives Seconde Guerre mondiale, A6M Zero, texte factuel sobre.",
     captions: [
@@ -498,6 +515,7 @@ export const scenes: Scene[] = [
     number: 6,
     title: "La chute, puis la renaissance",
     timecode: "8:00 – 9:10",
+    targetSeconds: 70,
     tone: "hopeful",
     visualNote: "Occupation 1945-46, fragmentation, reconstruction du Japon.",
     captions: [
@@ -562,6 +580,7 @@ export const scenes: Scene[] = [
     number: 7,
     title: "Mitsubishi aujourd'hui",
     timecode: "9:10 – 9:50",
+    targetSeconds: 40,
     tone: "normal",
     visualNote: "Montage moderne : voiture, gratte-ciels de Tokyo, logos des branches.",
     captions: [
@@ -603,6 +622,7 @@ export const scenes: Scene[] = [
     number: 8,
     title: "Conclusion",
     timecode: "9:50 – 10:20",
+    targetSeconds: 30,
     tone: "outro",
     visualNote: "Retour au logo aux trois diamants, carte de fin / CTA.",
     captions: [

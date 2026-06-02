@@ -5,6 +5,7 @@ import { Background } from "./Background";
 import { Visual } from "./Visual";
 import { Caption } from "./Caption";
 import { ChapterLabel } from "./ChapterLabel";
+import { captionFrames } from "../timing";
 
 /**
  * Rend une séquence complète :
@@ -20,8 +21,8 @@ export const Scene: React.FC<{ scene: SceneData; showChapter?: boolean }> = ({
 }) => {
   const { fps } = useVideoConfig();
 
-  // Durées en frames + offsets cumulés.
-  const durations = scene.captions.map((c) => Math.round(c.seconds * fps));
+  // Durées en frames (mises à l'échelle sur targetSeconds) + offsets cumulés.
+  const durations = captionFrames(scene, fps);
   const offsets: number[] = [];
   durations.reduce((acc, d, i) => {
     offsets[i] = acc;
