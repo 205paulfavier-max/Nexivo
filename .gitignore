@@ -1,0 +1,15 @@
+node_modules
+dist
+dist-ssr
+*.local
+.vite
+
+# Artefact HTML autonome genere par le build
+GENESIS-demo.html
+
+# Editeurs
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.log
